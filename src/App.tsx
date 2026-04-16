@@ -4,7 +4,6 @@
  */
 
 import { motion } from "motion/react";
-import c9 from "/c9.jpeg";
 import { 
   Zap, 
   ShieldCheck, 
@@ -110,7 +109,7 @@ const customerReviews = [
   { image: "/c3.jpeg" },
   { image: "/c4.jpeg" },
   { image: "/c8.jpeg" },
-  { image: c9 }
+  { image: "/c9.jpeg" }
 ];
 
 export default function App() {
