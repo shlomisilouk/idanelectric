@@ -4,8 +4,7 @@
  */
 
 import { motion } from "motion/react";
-import heroBg from "./lightning1.jpeg";
-import c9 from "./c9.jpeg";
+import c9 from "/c9.jpeg";
 import { 
   Zap, 
   ShieldCheck, 
@@ -76,41 +75,41 @@ const beforeAfterWorks = [
   {
     title: "שדרוג לוח חשמל",
     description: "החלפת לוח ישן ומסוכן בלוח מודרני, בטיחותי ומאורגן.",
-    image: "./c5.jpeg"
+    image: "/c5.jpeg"
   },
   {
     title: "התקנת טיימר לדוד",
     description: "מעבר לטיימר דיגיטלי חכם לשליטה מקסימלית.",
-    image: "./before1.jpeg"
+    image: "/before1.jpeg"
   },
   {
     title: "התקנת תאורת לד מעוצבת",
     description: "שיפור משמעותי במראה הבית ובצריכת האנרגיה.",
-    image: "./before4.jpeg"
+    image: "/before4.jpeg"
   },
   {
     title: "תיקון שקעים שרופים",
     description: "איתור קצר וטיפול בשקעים שהתחממו יתר על המידה.",
-    image: "./before3.jpeg"
+    image: "/before3.jpeg"
   },
   {
     title: "התקנת עמדת טעינה לרכב חשמלי",
     description: "פתרון טעינה מהיר, בטיחותי ומקצועי לרכב החשמלי שלך.",
-    image: "./c6.jpeg"
+    image: "/c6.jpeg"
   },
   {
     title: "התקנת גופי לד בפרגולה",
     description: "תאורת אווירה מעוצבת ועמידה למים לשדרוג הפרגולה והגינה.",
-    image: "./c7.jpeg"
+    image: "/c7.jpeg"
   }
 ];
 
 const customerReviews = [
-  { image: "./c1.jpeg" },
-  { image: "./c2.jpeg" },
-  { image: "./c3.jpeg" },
-  { image: "./c4.jpeg" },
-  { image: "./c8.jpeg" },
+  { image: "/c1.jpeg" },
+  { image: "/c2.jpeg" },
+  { image: "/c3.jpeg" },
+  { image: "/c4.jpeg" },
+  { image: "/c8.jpeg" },
   { image: c9 }
 ];
 
@@ -176,7 +175,7 @@ export default function App() {
           </div>
 
           <div className="flex items-center justify-center">
-            <img src="./headline2.jpeg" alt="עידן החשמל" className="h-12 md:h-16 w-auto object-contain" referrerPolicy="no-referrer" />
+            <img src="/headline2.jpeg" alt="עידן החשמל" className="h-12 md:h-16 w-auto object-contain" referrerPolicy="no-referrer" />
           </div>
 
           {/* Desktop Nav */}
@@ -219,7 +218,7 @@ export default function App() {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(${heroBg})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(/lightning1.jpeg)`,
             opacity: 0.7
           }}
         >
@@ -490,7 +489,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
             <div className="lg:col-span-2 flex flex-col items-center">
               <div className="mb-8">
-                <img src="./logo1.jpeg" alt="עידן החשמל" className="h-40 md:h-56 w-auto object-contain" referrerPolicy="no-referrer" />
+                <img src="/logo1.jpeg" alt="עידן החשמל" className="h-40 md:h-56 w-auto object-contain" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-400 max-w-md leading-relaxed mb-6 text-center">
                 אנו מחויבים למתן שירותי חשמל ברמה הגבוהה ביותר, תוך הקפדה על בטיחות, אמינות ושקיפות מלאה מול הלקוח. חשמלאי מוסמך ברישיון מלא.
