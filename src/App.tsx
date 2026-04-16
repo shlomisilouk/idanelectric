@@ -150,7 +150,7 @@ export default function App() {
           isScrolled ? "bg-black/90 backdrop-blur-md border-b border-gold/20 py-3" : "bg-transparent py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex md:grid md:grid-cols-3 items-center justify-between flex-row-reverse md:flex-row">
+        <div className="max-w-7xl mx-auto px-6 flex md:grid md:grid-cols-3 items-center justify-between flex-row-reverse md:flex-row relative">
           {/* Contact Info - Top Left */}
           <div className="hidden md:flex items-center gap-6 text-[13px] font-medium text-zinc-300">
             <a href="mailto:Idanelectric1@gmail.com" className="flex items-center gap-2 hover:text-gold transition-colors">
@@ -171,6 +171,27 @@ export default function App() {
                 </svg>
               </a>
             </div>
+          </div>
+
+          {/* Mobile Floating Buttons in Header */}
+          <div className="flex md:hidden items-center gap-3 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+            <motion.a 
+              href="https://wa.me/972505745915?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%90%D7%95%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8."
+              target="_blank"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg"
+            >
+              <MessageCircle className="w-5 h-5 fill-current" />
+            </motion.a>
+            <motion.a 
+              href="tel:0505745915"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 bg-gold text-black rounded-full flex items-center justify-center shadow-lg"
+            >
+              <Phone className="w-5 h-5 fill-current" />
+            </motion.a>
           </div>
 
           <div className="flex items-center justify-center">
@@ -495,15 +516,6 @@ export default function App() {
               </p>
             </div>
 
-            <div>
-              <h4 className="text-lg font-bold mb-6 text-white">ניווט מהיר</h4>
-              <ul className="space-y-4 text-gray-400">
-                <li><a href="#" className="hover:text-gold transition-colors">דף הבית</a></li>
-                <li><a href="#services" className="hover:text-gold transition-colors">שירותים</a></li>
-                <li><a href="#reviews" className="hover:text-gold transition-colors">המלצות</a></li>
-              </ul>
-            </div>
-
             <div className="flex flex-col items-center md:items-end">
               <h4 className="text-gold font-bold text-xl mb-6">צרו קשר עכשיו:</h4>
               <div className="space-y-4 mb-8 w-full flex flex-col items-center md:items-end">
@@ -533,6 +545,15 @@ export default function App() {
                 רישיון חשמלאי מוסמך מס' 1024953
               </div>
             </div>
+
+            <div className="flex flex-col items-center">
+              <h4 className="text-lg font-bold mb-6 text-white text-center">ניווט מהיר</h4>
+              <ul className="space-y-4 text-gray-400 text-center">
+                <li><a href="#" className="hover:text-gold transition-colors">דף הבית</a></li>
+                <li><a href="#services" className="hover:text-gold transition-colors">שירותים</a></li>
+                <li><a href="#reviews" className="hover:text-gold transition-colors">המלצות</a></li>
+              </ul>
+            </div>
           </div>
 
           <div className="pt-12 border-t border-white/5 text-center text-gray-500 text-sm">
@@ -541,10 +562,10 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating CTA */}
-      <div className="fixed bottom-8 left-8 md:bottom-8 md:left-8 top-5 left-5 md:top-auto z-[60] flex flex-col md:flex-col gap-4">
+      {/* Floating CTA - Desktop Only */}
+      <div className="hidden md:flex fixed bottom-8 left-8 z-50 flex-col gap-4">
         <motion.a 
-          href="https://wa.me/972505745915"
+          href="https://wa.me/972505745915?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%90%D7%95%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8."
           target="_blank"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
