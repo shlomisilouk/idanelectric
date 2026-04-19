@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Zap, 
   ShieldCheck, 
@@ -20,7 +20,9 @@ import {
   Instagram,
   Facebook,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Network,
+  ChevronDown
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
@@ -31,9 +33,9 @@ const services = [
     description: "אבחון מדויק ופתרון מהיר לכל תקלה במערכת החשמל הביתית או העסקית."
   },
   {
-    title: "העברת ביקורת חברת חשמל",
+    title: "העברת ביקורות חברת חשמל",
     icon: <FileCheck className="w-6 h-6 text-gold" />,
-    description: "הכנה וליווי מלא עד לקבלת אישור תקינות מחברת החשמל."
+    description: "העברת ביקורת חשמל, ביצוע והכנה, תיקון ליקויים וליווי מלא עד לקבלת אישור מחברת חשמל."
   },
   {
     title: "החלפת לוחות חשמל",
@@ -49,6 +51,11 @@ const services = [
     title: "עמדות טעינה לרכב חשמלי",
     icon: <Car className="w-6 h-6 text-gold" />,
     description: "התקנת עמדות טעינה ביתיות וציבוריות בהתאם לתקנים המחמירים ביותר."
+  },
+  {
+    title: "ביצוע נקודות ותשתיות חשמל",
+    icon: <Network className="w-6 h-6 text-gold" />,
+    description: "התקנת נקודות ותשתיות חשמל חדשות לדירות, משרדים ועסקים בהתאמה לצרכים שלכם עם דגש על בטיחות וגימור איכותי."
   }
 ];
 
@@ -77,29 +84,30 @@ const beforeAfterWorks = [
     image: "/c5.jpeg"
   },
   {
-    title: "התקנת טיימר לדוד",
+    title: "התקנת טיימר חכם לדוד",
     description: "מעבר לטיימר דיגיטלי חכם לשליטה מקסימלית.",
-    image: "/before1.jpeg"
+    image: "/timer1.jpeg"
   },
   {
     title: "התקנת תאורת לד מעוצבת",
     description: "שיפור משמעותי במראה הבית ובצריכת האנרגיה.",
-    image: "/before4.jpeg"
-  },
-  {
-    title: "תיקון שקעים שרופים",
-    description: "איתור קצר וטיפול בשקעים שהתחממו יתר על המידה.",
-    image: "/before3.jpeg"
+    image: "/before44.jpeg"
   },
   {
     title: "התקנת עמדת טעינה לרכב חשמלי",
     description: "פתרון טעינה מהיר, בטיחותי ומקצועי לרכב החשמלי שלך.",
-    image: "/c6.jpeg"
+    image: "/c6.jpeg",
+    position: "object-[center_35%]"
   },
   {
-    title: "התקנת גופי לד בפרגולה",
+    title: "התקנת פסי לד בפרגולה",
     description: "תאורת אווירה מעוצבת ועמידה למים לשדרוג הפרגולה והגינה.",
     image: "/c7.jpeg"
+  },
+  {
+    title: "ביצוע נקודות ותשתיות חשמל",
+    description: "הקמת תשתיות חשמל מקצועיות ויציבות לביטחון מקסימלי.",
+    image: "/c16.jpeg"
   }
 ];
 
@@ -107,14 +115,51 @@ const customerReviews = [
   { image: "/c1.jpeg" },
   { image: "/c2.jpeg" },
   { image: "/c3.jpeg" },
+  { image: "/c11.jpeg" },
+  { image: "/c12.jpeg" },
+  { image: "/c13.jpeg" },
+  { image: "/c14.jpeg" },
+  { image: "/c15.jpeg" },
   { image: "/c4.jpeg" },
   { image: "/c8.jpeg" },
   { image: "/c9.jpeg" }
 ];
 
+const faqs = [
+  {
+    question: "איך אדע שאני מזמין חשמלאי מוסמך ואמין?",
+    answer: "חשוב לוודא שמדובר בבעל רישיון חשמל בתוקף, עם ניסיון מוכח, המלצות מלקוחות קודמים ושירות מקצועי ואדיב. אצלנו עובדים בצורה מסודרת, שקופה ובסטנדרט גבוה"
+  },
+  {
+    question: "כמה עולה להזמין חשמלאי?",
+    answer: "המחיר משתנה לפי סוג העבודה – תיקון תקלה, התקנת נקודה חדשה, החלפת לוח חשמל או בדיקה. לאחר הבנת הצורך תקבלו הצעת מחיר הוגנת וברורה מראש, ללא הפתעות"
+  },
+  {
+    question: "תוך כמה זמן אפשר להגיע?",
+    answer: "במקרים דחופים נעשה מאמץ להגיע במהירות האפשרית. בעבודות מתוכננות ניתן לתאם מועד נוח מראש בהתאם לזמינות"
+  },
+  {
+    question: "האם העבודה מתבצעת בצורה נקייה ומסודרת?",
+    answer: "בהחלט. אנחנו מקפידים על עבודה נקייה, שמירה על הבית או העסק, סידור אזור העבודה ופינוי הפסולת בסיום, המוטו שלנו שאנחנו עובדים אצלך כאילו זה הבית שלנו."
+  },
+  {
+    question: "מה עושים אם יש קפיצות חשמל חוזרות?",
+    answer: "קפיצות חשמל מעידות לרוב על עומס, קצר או תקלה במכשיר מסוים. נבצע בדיקה מקצועית ונאתר את מקור הבעיה."
+  },
+  {
+    question: "האם אפשר לשדרג לוח חשמל ישן?",
+    answer: "בהחלט. לוח חשמל ישן או עמוס עלול לגרום לקפיצות חשמל, התחממות, תקלות ואף לסכן את בטיחות הדיירים. חשוב שלוח החשמל יתאים לעומסים הקיימים. אנו מבצעים שדרוג מקצועי ללוח חשמל חדש, מסודר ובטיחותי, הכולל חלוקה נכונה של הקווים, הגנות מתקדמות והתאמה מלאה לצרכים של הבית או העסק."
+  },
+  {
+    question: "האם צריך לשבור קירות כדי להוסיף נקודת חשמל?",
+    answer: "לא תמיד. יש מקרים בהם ניתן למצוא פתרונות אסתטיים ללא חציבה משמעותית, בהתאם למבנה המקום והצורך, תן למקצוענים לעשות את העבודה."
+  }
+];
+
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const reviewsScrollRef = useRef<HTMLDivElement>(null);
 
@@ -143,7 +188,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen font-sans selection:bg-gold selection:text-black">
+    <div dir="rtl" className="min-h-screen font-sans selection:bg-gold selection:text-black text-right lowercase-none">
       {/* Navigation */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -162,7 +207,7 @@ export default function App() {
               <a href="https://www.instagram.com/idan_sharabi/" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://www.facebook.com/search/top/?q=idan%20sharabi" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">
+              <a href="https://www.facebook.com/share/19spwd2kJ1/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
               <a href="https://www.tiktok.com/@idanelectric" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">
@@ -233,7 +278,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-screen md:h-screen flex items-center justify-center overflow-visible md:overflow-hidden pt-32 pb-20 md:pt-20 md:pb-0">
         {/* Background Overlay */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
@@ -251,22 +296,54 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-bold mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-bold mb-6 md:mb-8">
               <ShieldCheck className="w-4 h-4" />
               חשמלאי מוסמך | רישיון מס' 1024953
             </div>
+
+            <div className="flex justify-center mb-6 md:mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gold/20 blur-2xl rounded-full"></div>
+                <img 
+                  src="/hero1.jpeg" 
+                  alt="עידן שרבי - חשמלאי מוסמך" 
+                  className="relative w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-[center_25%] border-4 border-gold/30 shadow-2xl" 
+                  referrerPolicy="no-referrer" 
+                />
+              </motion.div>
+            </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-[1.1]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4 md:mb-6 leading-[1.1]">
               עידן החשמל <br />
               <span className="text-gold">חכמים בחשמל,</span> <br />
               חזקים בשירות!
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 font-light">
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-10 font-light">
               דור שני של מקצוענות. ביצוע כל עבודות החשמל לבית ולעסק בשקיפות מלאה ובסטנדרט הגבוה ביותר.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            {/* Mobile Social Links */}
+            <div className="flex md:hidden items-center justify-center gap-8 mb-8 md:mb-10">
+              <a href="https://www.facebook.com/share/19spwd2kJ1/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="text-gold transition-colors">
+                <Facebook className="w-8 h-8" />
+              </a>
+              <a href="https://www.instagram.com/idan_sharabi/" target="_blank" rel="noreferrer" className="text-gold transition-colors">
+                <Instagram className="w-8 h-8" />
+              </a>
+              <a href="https://www.tiktok.com/@idanelectric" target="_blank" rel="noreferrer" className="text-gold transition-colors">
+                <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.33 2.1-.1.7.1 1.41.53 1.96.5.63 1.28 1.04 2.07 1.07.9.06 1.83-.27 2.43-.94.43-.48.63-1.12.61-1.75.03-5.53.02-11.07.03-16.61z"/>
+                </svg>
+              </a>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-12">
               <motion.a 
                 href="tel:0505745915"
                 whileHover={{ scale: 1.02 }}
@@ -290,7 +367,7 @@ export default function App() {
       </section>
 
       {/* Guarantees Section */}
-      <section className="py-24 bg-black relative border-y border-gold/10">
+      <section className="py-8 md:py-24 bg-black relative border-y border-gold/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {guarantees.map((item, index) => (
@@ -314,9 +391,22 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 relative">
+      <section id="services" className="py-8 md:py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-8 md:mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="md:hidden mb-4"
+            >
+              <img 
+                src="/c10.jpeg" 
+                alt="עבודות חשמל" 
+                className="w-full max-w-40 mx-auto rounded-3xl shadow-2xl border border-white/10"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
             <h2 className="text-4xl md:text-5xl font-black mb-6">ביצוע כל עבודות החשמל</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               מהתקלות הקטנות ביותר ועד לפרויקטים מורכבים - אנחנו כאן כדי לתת לכם מענה מקצועי, בטוח ומהיר.
@@ -342,9 +432,14 @@ export default function App() {
             <div className="p-8 rounded-3xl bg-gold flex flex-col justify-center items-center text-center text-black">
               <h3 className="text-3xl font-black mb-4">זקוק לעבודה אחרת?</h3>
               <p className="text-black/80 font-medium mb-8">צרו קשר עכשיו וקבלו הצעת מחיר מותאמת אישית לכל צורך.</p>
-              <button className="px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-zinc-800 transition-colors">
+              <a 
+                href="https://wa.me/972505745915?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%90%D7%95%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8." 
+                target="_blank" 
+                rel="noreferrer"
+                className="px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-zinc-800 transition-colors"
+              >
                 דברו איתנו
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -400,21 +495,22 @@ export default function App() {
 
           <div 
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar"
+            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar scroll-px-6 md:scroll-px-20"
           >
             {beforeAfterWorks.map((work, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="min-w-[300px] md:min-w-[450px] snap-start group"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="min-w-[300px] md:min-w-[450px] snap-center group"
               >
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 mb-6">
                   <img 
                     src={work.image} 
                     alt={work.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${(work as any).position || 'object-center'}`}
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
@@ -479,15 +575,16 @@ export default function App() {
 
           <div 
             ref={reviewsScrollRef}
-            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar"
+            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar scroll-px-6 md:scroll-px-20"
           >
             {customerReviews.map((review, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="min-w-[280px] md:min-w-[400px] snap-start group"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="min-w-[280px] md:min-w-[400px] snap-center group"
               >
                 <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 flex items-center justify-center p-2">
                   <img 
@@ -497,6 +594,65 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-black border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block"
+            >
+              שאלות נפוצות
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-black text-white"
+            >
+              לקוחות <span className="text-gold">שואלים</span>
+            </motion.h2>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="border border-white/10 rounded-2xl overflow-hidden bg-zinc-900/30"
+              >
+                <button 
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 flex items-center justify-between text-right hover:bg-white/5 transition-colors"
+                >
+                  <span className="text-xl font-bold text-white">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-6 h-6 text-gold transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} 
+                  />
+                </button>
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 text-gray-400 leading-relaxed text-lg border-t border-white/5 pt-4">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
@@ -534,7 +690,7 @@ export default function App() {
                     <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.31-.75.42-1.24 1.25-1.33 2.1-.1.7.1 1.41.53 1.96.5.63 1.28 1.04 2.07 1.07.9.06 1.83-.27 2.43-.94.43-.48.63-1.12.61-1.75.03-5.53.02-11.07.03-16.61z"/>
                   </svg>
                 </a>
-                <a href="https://www.facebook.com/search/top/?q=idan%20sharabi" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-gold hover:text-black transition-all">
+                <a href="https://www.facebook.com/share/19spwd2kJ1/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-gold hover:text-black transition-all">
                   <Facebook className="w-6 h-6" />
                 </a>
                 <a href="https://www.instagram.com/idan_sharabi/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-gold hover:text-black transition-all">
