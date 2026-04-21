@@ -80,33 +80,33 @@ const guarantees = [
 const beforeAfterWorks = [
   {
     title: "שדרוג לוח חשמל",
-    description: "החלפת לוח ישן ומסוכן בלוח מודרני, בטיחותי ומאורגן.",
+    description: "",
     image: "/c5.jpeg"
   },
   {
     title: "התקנת טיימר חכם לדוד",
-    description: "מעבר לטיימר דיגיטלי חכם לשליטה מקסימלית.",
-    image: "/timer1.jpeg"
+    description: "",
+    image: "/timer2.jpeg"
   },
   {
     title: "התקנת תאורת לד מעוצבת",
-    description: "שיפור משמעותי במראה הבית ובצריכת האנרגיה.",
+    description: "",
     image: "/before44.jpeg"
   },
   {
     title: "התקנת עמדת טעינה לרכב חשמלי",
-    description: "פתרון טעינה מהיר, בטיחותי ומקצועי לרכב החשמלי שלך.",
+    description: "",
     image: "/c6.jpeg",
     position: "object-[center_35%]"
   },
   {
     title: "התקנת פסי לד בפרגולה",
-    description: "תאורת אווירה מעוצבת ועמידה למים לשדרוג הפרגולה והגינה.",
+    description: "",
     image: "/c7.jpeg"
   },
   {
     title: "ביצוע נקודות ותשתיות חשמל",
-    description: "הקמת תשתיות חשמל מקצועיות ויציבות לביטחון מקסימלי.",
+    description: "",
     image: "/c16.jpeg"
   }
 ];
@@ -128,31 +128,31 @@ const customerReviews = [
 const faqs = [
   {
     question: "איך אדע שאני מזמין חשמלאי מוסמך ואמין?",
-    answer: "חשוב לוודא שמדובר בבעל רישיון חשמל בתוקף, עם ניסיון מוכח, המלצות מלקוחות קודמים ושירות מקצועי ואדיב. אצלנו עובדים בצורה מסודרת, שקופה ובסטנדרט גבוה"
+    answer: "חשוב לוודא שמדובר בבעל רישיון חשמל בתוקף, עם ניסיון מוכח. המלצות מלקוחות קודמים ושירות מקצועי ואדיב.\nאצלנו עובדים בצורה מסודרת, שקופה ובסטנדרט הכי גבוה שיש!"
   },
   {
     question: "כמה עולה להזמין חשמלאי?",
-    answer: "המחיר משתנה לפי סוג העבודה – תיקון תקלה, התקנת נקודה חדשה, החלפת לוח חשמל או בדיקה. לאחר הבנת הצורך תקבלו הצעת מחיר הוגנת וברורה מראש, ללא הפתעות"
+    answer: "המחיר משתנה לפי סוג העבודה – תיקון תקלה, התקנת נקודה חדשה, החלפת לוח חשמל או בדיקה.\nלאחר הבנת הצורך תקבלו הצעת מחיר הוגנת וברורה מראש, ללא הפתעות!"
   },
   {
     question: "תוך כמה זמן אפשר להגיע?",
-    answer: "במקרים דחופים נעשה מאמץ להגיע במהירות האפשרית. בעבודות מתוכננות ניתן לתאם מועד נוח מראש בהתאם לזמינות"
+    answer: "במקרים דחופים נעשה מאמץ להגיע במהירות האפשרית, בעבודות מתוכננות ניתן לתאם מועד נוח מראש בהתאם לזמינות 😊"
   },
   {
     question: "האם העבודה מתבצעת בצורה נקייה ומסודרת?",
-    answer: "בהחלט. אנחנו מקפידים על עבודה נקייה, שמירה על הבית או העסק, סידור אזור העבודה ופינוי הפסולת בסיום, המוטו שלנו שאנחנו עובדים אצלך כאילו זה הבית שלנו."
+    answer: "בהחלט!\nאנחנו מקפידים על עבודה נקייה, שמירה על הבית או העסק, סידור אזור העבודה ופינוי הפסולת בסיום.\nשאנחנו נמצאים בבית הלקוח אנחנו עובדים כאילו זה הבית שלנו."
   },
   {
     question: "מה עושים אם יש קפיצות חשמל חוזרות?",
     answer: "קפיצות חשמל מעידות לרוב על עומס, קצר או תקלה במכשיר מסוים. נבצע בדיקה מקצועית ונאתר את מקור הבעיה."
   },
   {
-    question: "האם אפשר לשדרג לוח חשמל ישן?",
-    answer: "בהחלט. לוח חשמל ישן או עמוס עלול לגרום לקפיצות חשמל, התחממות, תקלות ואף לסכן את בטיחות הדיירים. חשוב שלוח החשמל יתאים לעומסים הקיימים. אנו מבצעים שדרוג מקצועי ללוח חשמל חדש, מסודר ובטיחותי, הכולל חלוקה נכונה של הקווים, הגנות מתקדמות והתאמה מלאה לצרכים של הבית או העסק."
+    question: "האם מומלץ לשדרג לוח חשמל ישן?",
+    answer: "בהחלט. לוח חשמל ישן או עמוס עלול לגרום לקפיצות חשמל, התחממות, תקלות ואף לסכן את בטיחות הדיירים. חשוב שלוח החשמל יתאים לעומסים הקיימים.\nאנו מבצעים שדרוג מקצועי ללוח חשמל חדש, מסודר ובטיחותי, הכולל חלוקה נכונה של הקווים, הגנות הכרחיות כמו הארקה ומכשיר נגד התחשמלות בהתאמה מלאה לצרכים של הבית או העסק."
   },
   {
     question: "האם צריך לשבור קירות כדי להוסיף נקודת חשמל?",
-    answer: "לא תמיד. יש מקרים בהם ניתן למצוא פתרונות אסתטיים ללא חציבה משמעותית, בהתאם למבנה המקום והצורך, תן למקצוענים לעשות את העבודה."
+    answer: "ממש לא תמיד.\nישנם מקרים בהם ניתן למצוא פתרונות אסתטיים ללא חציבה משמעותית, בהתאם למבנה המקום והצורך, תן למקצוענים לעשות את העבודה. 😉"
   }
 ];
 
@@ -247,6 +247,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8 justify-end">
             <a href="#services" className="text-sm font-medium hover:text-gold transition-colors">שירותים</a>
             <a href="#reviews" className="text-sm font-medium hover:text-gold transition-colors">המלצות</a>
+            <a href="#faq" className="text-sm font-medium hover:text-gold transition-colors">לקוחות שואלים</a>
             <a href="#contact" className="px-5 py-2 bg-gold text-black rounded-full text-sm font-bold hover:bg-white transition-all transform hover:scale-105">
               הזמן חשמלאי
             </a>
@@ -272,6 +273,7 @@ export default function App() {
           >
             <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">שירותים</a>
             <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">המלצות</a>
+            <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">לקוחות שואלים</a>
             <a href="#contact" onClick={() => setIsMenuOpen(false)} className="bg-gold text-black py-3 rounded-lg font-bold">הזמן חשמלאי עכשיו</a>
           </motion.div>
         )}
@@ -312,7 +314,7 @@ export default function App() {
                 <img 
                   src="/hero1.jpeg" 
                   alt="עידן שרבי - חשמלאי מוסמך" 
-                  className="relative w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-[center_25%] border-4 border-gold/30 shadow-2xl" 
+                  className="relative w-28 h-28 md:w-36 md:h-36 rounded-full object-cover object-[center_25%] transition-transform duration-500 hover:scale-105" 
                   referrerPolicy="no-referrer" 
                 />
               </motion.div>
@@ -403,7 +405,7 @@ export default function App() {
               <img 
                 src="/c10.jpeg" 
                 alt="עבודות חשמל" 
-                className="w-full max-w-40 mx-auto rounded-3xl shadow-2xl border border-white/10"
+                className="w-full max-w-40 mx-auto transition-transform duration-500 hover:scale-105"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -552,7 +554,7 @@ export default function App() {
                 whileInView={{ opacity: 1 }}
                 className="text-gray-400 max-w-sm"
               >
-                ההצלחה שלנו נמדדת בשביעות הרצון שלכם. הנה כמה מהתגובות שקיבלנו מלקוחות מרוצים.
+                ההצלחה שלנו נמדדת בשביעות הרצון שלכם. הנה כמה מהתגובות שקיבלנו מלקוחות מעריצים.
               </motion.p>
               <div className="flex gap-4">
                 <button 
@@ -601,7 +603,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-black border-t border-white/5">
+      <section id="faq" className="py-24 bg-black border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <motion.span 
@@ -648,7 +650,9 @@ export default function App() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="px-6 pb-6 text-gray-400 leading-relaxed text-lg border-t border-white/5 pt-4">
-                        {faq.answer}
+                        {faq.answer.split('\n').map((line, i) => (
+                          <p key={i} className={i > 0 ? "mt-2" : ""}>{line}</p>
+                        ))}
                       </div>
                     </motion.div>
                   )}
@@ -656,6 +660,23 @@ export default function App() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="mt-20 p-8 md:p-12 rounded-3xl bg-gold flex flex-col justify-center items-center text-center text-black"
+          >
+            <h3 className="text-3xl font-black mb-4">שאלה שמעניינת אותך?</h3>
+            <p className="text-black/80 font-medium mb-8 text-xl">מוזמנים לכתוב לנו ולקבל מענה מקצועי לכל שאלה!</p>
+            <a 
+              href="https://wa.me/972505745915?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%2C%20%D7%90%D7%9E%D7%A9%D7%97%20%D7%9C%D7%A9%D7%90%D7%95%D7%9C%20%D7%90%D7%95%D7%AA%D7%9A%20%D7%A9%D7%90%D7%9C%D7%94%20%3A%29" 
+              target="_blank" 
+              rel="noreferrer"
+              className="px-10 py-4 bg-black text-white rounded-full font-bold text-xl hover:bg-zinc-800 transition-colors shadow-xl"
+            >
+              שאלו אותנו בוואטסאפ
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -708,6 +729,7 @@ export default function App() {
                 <li><a href="#" className="hover:text-gold transition-colors">דף הבית</a></li>
                 <li><a href="#services" className="hover:text-gold transition-colors">שירותים</a></li>
                 <li><a href="#reviews" className="hover:text-gold transition-colors">המלצות</a></li>
+                <li><a href="#faq" className="hover:text-gold transition-colors">לקוחות שואלים</a></li>
               </ul>
             </div>
           </div>
