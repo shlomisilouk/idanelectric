@@ -531,102 +531,39 @@ export default function App() {
         </div>
       </section>
 
-      {/* Customer Reviews Section */}
+      {/* Customer Reviews & Midrag Section */}
       <section id="reviews" className="py-24 bg-zinc-950 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-2xl">
+          {/* Midrag Reviews Integration */}
+          <div>
+            <div className="text-center max-w-3xl mx-auto mb-10">
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block"
+                className="text-gold font-bold tracking-widest uppercase text-sm mb-3 inline-flex items-center gap-2"
               >
-                לקוחות ממליצים
+                <Star className="w-4 h-4 fill-gold text-gold" />
+                דירוג וביקורות מאומתות
               </motion.span>
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl font-black text-white leading-tight"
+                className="text-4xl md:text-5xl font-black text-white mb-4"
               >
-                מה הלקוחות שלנו <span className="text-gold">אומרים?</span>
+                ביקורות מלקוחות ב<span className="text-gold">מידרג</span>
               </motion.h2>
-            </div>
-            <div className="flex flex-col gap-6">
               <motion.p 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-gray-400 max-w-sm"
+                className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto"
               >
-                ההצלחה שלנו נמדדת בשביעות הרצון שלכם. הנה כמה מהתגובות שקיבלנו מלקוחות מעריצים.
-              </motion.p>
-              <div className="flex gap-4">
-                <button 
-                  onClick={() => scrollReviews('right')}
-                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-                <button 
-                  onClick={() => scrollReviews('left')}
-                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div 
-            ref={reviewsScrollRef}
-            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar scroll-px-6 md:scroll-px-20"
-          >
-            {customerReviews.map((review, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="min-w-[280px] md:min-w-[400px] snap-center group"
-              >
-                <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 flex items-center justify-center p-2">
-                  <img 
-                    src={review.image} 
-                    alt="ביקורת לקוח"
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Midrag Reviews Integration */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-16 pt-16 border-t border-white/10"
-          >
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <span className="text-gold font-bold tracking-widest uppercase text-sm mb-3 inline-flex items-center gap-2">
-                <Star className="w-4 h-4 fill-gold text-gold" />
-                דירוג וביקורות מאומתות
-              </span>
-              <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
-                ביקורות מלקוחות במידרג
-              </h3>
-              <p className="text-gray-400 text-base md:text-lg">
                 ראו מה לקוחות מספרים על השירות שלנו בדירוג שקוף ומאומת באתר מידרג
-              </p>
+              </motion.p>
             </div>
 
             {/* Midrag Wrapper Card */}
-            <div className="max-w-4xl mx-auto rounded-3xl bg-zinc-900/60 border border-white/10 p-2 sm:p-4 md:p-6 shadow-2xl backdrop-blur-sm">
+            <div className="max-w-4xl mx-auto rounded-3xl bg-zinc-900/60 border border-white/10 p-2 sm:p-4 md:p-6 shadow-2xl backdrop-blur-sm mb-20">
               <div className="w-full overflow-hidden rounded-2xl bg-white shadow-inner">
                 {/* Midrag Reviews Implementation BEGIN */}
                 <iframe
@@ -638,7 +575,80 @@ export default function App() {
                 {/* Midrag Reviews Implementation END */}
               </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Customer Reviews Section */}
+          <div className="pt-16 border-t border-white/10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div className="max-w-2xl">
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block"
+                >
+                  לקוחות ממליצים
+                </motion.span>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-4xl md:text-5xl font-black text-white leading-tight"
+                >
+                  מה הלקוחות שלנו <span className="text-gold">אומרים?</span>
+                </motion.h2>
+              </div>
+              <div className="flex flex-col gap-6">
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className="text-gray-400 max-w-sm"
+                >
+                  ההצלחה שלנו נמדדת בשביעות הרצון שלכם. הנה כמה מהתגובות שקיבלנו מלקוחות מעריצים.
+                </motion.p>
+                <div className="flex gap-4">
+                  <button 
+                    onClick={() => scrollReviews('right')}
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all"
+                    aria-label="Next"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                  <button 
+                    onClick={() => scrollReviews('left')}
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div 
+              ref={reviewsScrollRef}
+              className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar scroll-px-6 md:scroll-px-20"
+            >
+              {customerReviews.map((review, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="min-w-[280px] md:min-w-[400px] snap-center group"
+                >
+                  <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 flex items-center justify-center p-2">
+                    <img 
+                      src={review.image} 
+                      alt="ביקורת לקוח"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
