@@ -22,39 +22,40 @@ import {
   ChevronLeft,
   ChevronRight,
   Network,
-  ChevronDown
+  ChevronDown,
+  Star
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const services = [
   {
     title: "איתור וטיפול בתקלות חשמל",
-    icon: <Search className="w-6 h-6 text-gold" />,
+    icon: Search,
     description: "אבחון מדויק ופתרון מהיר לכל תקלה במערכת החשמל הביתית או העסקית."
   },
   {
     title: "העברת ביקורות חברת חשמל",
-    icon: <FileCheck className="w-6 h-6 text-gold" />,
+    icon: FileCheck,
     description: "העברת ביקורת חשמל, ביצוע והכנה, תיקון ליקויים וליווי מלא עד לקבלת אישור מחברת חשמל."
   },
   {
     title: "החלפת לוחות חשמל",
-    icon: <Zap className="w-6 h-6 text-gold" />,
+    icon: Zap,
     description: "שדרוג והחלפת לוחות חשמל ישנים ללוחות מודרניים ובטיחותיים."
   },
   {
     title: "התקנת גופי תאורה",
-    icon: <Lightbulb className="w-6 h-6 text-gold" />,
+    icon: Lightbulb,
     description: "התקנה מקצועית של כל סוגי גופי התאורה, כולל תאורת חוץ ופנים."
   },
   {
     title: "עמדות טעינה לרכב חשמלי",
-    icon: <Car className="w-6 h-6 text-gold" />,
+    icon: Car,
     description: "התקנת עמדות טעינה ביתיות וציבוריות בהתאם לתקנים המחמירים ביותר."
   },
   {
     title: "ביצוע נקודות ותשתיות חשמל",
-    icon: <Network className="w-6 h-6 text-gold" />,
+    icon: Network,
     description: "התקנת נקודות ותשתיות חשמל חדשות לדירות, משרדים ועסקים בהתאמה לצרכים שלכם עם דגש על בטיחות וגימור איכותי."
   }
 ];
@@ -280,7 +281,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen md:h-screen flex items-center justify-center overflow-visible md:overflow-hidden pt-32 pb-20 md:pt-20 md:pb-0">
+      <section className="relative min-h-screen flex items-center justify-center overflow-visible pt-32 pb-20 md:pt-36 md:pb-28">
         {/* Background Overlay */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
@@ -416,19 +417,22 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ y: -10 }}
-                className="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-gold/30 transition-all group"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-black transition-colors">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{service.description}</p>
-              </motion.div>
-            ))}
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div 
+                  key={index}
+                  whileHover={{ y: -10 }}
+                  className="p-8 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-gold/30 transition-all group"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-gold group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{service.description}</p>
+                </motion.div>
+              );
+            })}
             
             {/* CTA Card */}
             <div className="p-8 rounded-3xl bg-gold flex flex-col justify-center items-center text-center text-black">
@@ -599,6 +603,42 @@ export default function App() {
               </motion.div>
             ))}
           </div>
+
+          {/* Midrag Reviews Integration */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 pt-16 border-t border-white/10"
+          >
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="text-gold font-bold tracking-widest uppercase text-sm mb-3 inline-flex items-center gap-2">
+                <Star className="w-4 h-4 fill-gold text-gold" />
+                דירוג וביקורות מאומתות
+              </span>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                ביקורות מלקוחות במידרג
+              </h3>
+              <p className="text-gray-400 text-base md:text-lg">
+                ראו מה לקוחות מספרים על השירות שלנו בדירוג שקוף ומאומת באתר מידרג
+              </p>
+            </div>
+
+            {/* Midrag Wrapper Card */}
+            <div className="max-w-4xl mx-auto rounded-3xl bg-zinc-900/60 border border-white/10 p-2 sm:p-4 md:p-6 shadow-2xl backdrop-blur-sm">
+              <div className="w-full overflow-hidden rounded-2xl bg-white shadow-inner">
+                {/* Midrag Reviews Implementation BEGIN */}
+                <iframe
+                  src="https://www.midrag.co.il/SpCard/Sp/145993?sectorId=5&listId=1"
+                  className="w-full h-[750px] sm:h-[820px] md:h-[900px] border-0 block"
+                  loading="lazy"
+                  title="ביקורות לקוחות במידרג - עידן החשמל"
+                ></iframe>
+                {/* Midrag Reviews Implementation END */}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
